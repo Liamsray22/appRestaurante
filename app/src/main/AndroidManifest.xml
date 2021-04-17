@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppRestaurante">
         <activity android:name=".client.sale">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".admin.admin">
         </activity>
-        <activity android:name=".client.client"></activity>
+        <activity android:name=".client.client">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity" />
     </application>
 

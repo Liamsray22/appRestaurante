@@ -1,6 +1,7 @@
 package com.example.apprestaurante.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,18 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.viewHolder>{
         holder.FoodName.setText(model.getName());
         holder.FoodPrice.setText(model.getPrice());
         holder.FoodDesc.setText(model.getDescription());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sale = new Intent(context, com.example.apprestaurante.client.sale.class);
+                sale.putExtra("image", model.getImage());
+                sale.putExtra("name", model.getName());
+                sale.putExtra("price", model.getPrice());
+                sale.putExtra("desc", model.getDescription());
+                context.startActivity(sale);
+            }
+        });
 
     }
 
