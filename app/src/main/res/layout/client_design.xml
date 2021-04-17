@@ -22,7 +22,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/FoodImage"
                 android:layout_width="350dp"
                 android:layout_height="144dp"
                 android:layout_weight="1"
