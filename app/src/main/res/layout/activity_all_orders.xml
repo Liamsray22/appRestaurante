@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo_admin"
     android:orientation="vertical"
     tools:context=".admin.allOrders">
 
@@ -11,7 +12,6 @@
         android:id="@+id/allOrdersRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/client_design">
-    </androidx.recyclerview.widget.RecyclerView>
+        tools:listitem="@layout/client_design"></androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
