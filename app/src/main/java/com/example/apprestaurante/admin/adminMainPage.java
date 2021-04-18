@@ -37,8 +37,8 @@ public class adminMainPage extends AppCompatActivity {
         binding.seeOrdersCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent createOrder = new Intent(getApplicationContext(), com.example.apprestaurante.admin.admin.class);
-                startActivity(createOrder);
+                Intent userOrders = new Intent(getApplicationContext(), com.example.apprestaurante.admin.allOrders.class);
+                startActivity(userOrders);
             }
         });
 
