@@ -3,9 +3,11 @@ package com.example.apprestaurante.admin;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import com.example.apprestaurante.Utils.Utils;
 
 import com.example.apprestaurante.Adapters.FoodAdapter;
 import com.example.apprestaurante.Adapters.OrderAdapter;
@@ -13,6 +15,7 @@ import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.Models.FoodModel;
 import com.example.apprestaurante.Models.OrderModel;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.client.client;
 import com.example.apprestaurante.databinding.ActivityAdminBinding;
 import com.example.apprestaurante.databinding.ActivityClientBinding;
 
@@ -27,6 +30,10 @@ public class admin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAdminBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        if(Utils.TipoUsuario != "admin"){
+            Intent isClient = new Intent(this, client.class);
+            startActivity(isClient);
+        }
         Database con = new Database(this, "Foods",null,1);
         db = con.getWritableDatabase();
         ArrayList<OrderModel> OrderList = new ArrayList<>();

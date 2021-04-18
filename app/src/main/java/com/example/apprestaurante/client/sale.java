@@ -10,7 +10,9 @@ import android.widget.Toast;
 
 import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.Utils.Utils;
 import com.example.apprestaurante.admin.admin;
+import com.example.apprestaurante.admin.adminMainPage;
 import com.example.apprestaurante.databinding.ActivitySaleBinding;
 
 public class sale extends AppCompatActivity {
@@ -24,6 +26,10 @@ public class sale extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySaleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        if(Utils.TipoUsuario != "client"){
+            Intent isAdmin = new Intent(this, adminMainPage.class);
+            startActivity(isAdmin);
+        }
         Database con = new Database(this, "Foods",null,1);
         db = con.getWritableDatabase();
 

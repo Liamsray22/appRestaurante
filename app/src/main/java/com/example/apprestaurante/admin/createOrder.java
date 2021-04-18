@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.Utils.Utils;
+import com.example.apprestaurante.client.client;
 import com.example.apprestaurante.databinding.ActivityCreateOrderBinding;
 import com.example.apprestaurante.databinding.ActivitySaleBinding;
 
@@ -24,6 +26,10 @@ public class createOrder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCreateOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        if(Utils.TipoUsuario != "admin"){
+            Intent isClient = new Intent(this, client.class);
+            startActivity(isClient);
+        }
 
         Database con = new Database(this, "Foods",null,1);
         db = con.getWritableDatabase();
