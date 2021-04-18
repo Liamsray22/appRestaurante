@@ -45,7 +45,7 @@ public class AllOrdersAdapter extends RecyclerView.Adapter<AllOrdersAdapter.view
         holder.editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Editing", Toast.LENGTH_LONG).show();
+                Editar(model);
             }
         });
 
@@ -59,13 +59,19 @@ public class AllOrdersAdapter extends RecyclerView.Adapter<AllOrdersAdapter.view
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent edit = new Intent(context, com.example.apprestaurante.client.sale.class);
-//                context.startActivity(edit);
-                Toast.makeText(context, "Editing", Toast.LENGTH_LONG).show();
-
+                Editar(model);
             }
         });
 
+    }
+
+    public void Editar(FoodModel model) {
+        Intent edit = new Intent(context, com.example.apprestaurante.admin.editOrder.class);
+        edit.putExtra("image", model.getImage());
+        edit.putExtra("name", model.getName());
+        edit.putExtra("price", model.getPrice());
+        edit.putExtra("desc", model.getDescription());
+        context.startActivity(edit);
     }
 
     @Override

@@ -2,15 +2,41 @@ package com.example.apprestaurante.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.Utils.Utils;
+import com.example.apprestaurante.client.client;
+import com.example.apprestaurante.databinding.ActivityEditOrderBinding;
+import com.example.apprestaurante.databinding.ActivitySaleBinding;
 
 public class editOrder extends AppCompatActivity {
 
+    ActivityEditOrderBinding binding;
+    SQLiteDatabase db;
+    int image;
+    String price, name, desc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_order);
+        binding = ActivityEditOrderBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        if(Utils.TipoUsuario != "admin"){
+            Intent isClient = new Intent(this, client.class);
+            startActivity(isClient);
+        }
+        Database con = new Database(this, "Foods",null,1);
+        db = con.getWritableDatabase();
+        image= getIntent().getIntExtra("image", 0);
+        price = getIntent().getStringExtra("price");
+        name = getIntent().getStringExtra("name");
+        desc = getIntent().getStringExtra("desc");
+
+        binding.EditdescEdt.setText(desc);
+        binding.EditnameEdt.setText(name);
+        binding.EditpriceEdt.setText(price);
     }
 }
