@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import com.example.apprestaurante.R;
 import com.example.apprestaurante.Utils.Utils;
 import com.example.apprestaurante.client.client;
-import com.example.apprestaurante.databinding.ActivityAdminBinding;
 import com.example.apprestaurante.databinding.ActivityAdminMainPageBinding;
 
 public class adminMainPage extends AppCompatActivity {
