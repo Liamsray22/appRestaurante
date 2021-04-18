@@ -1,10 +1,13 @@
 package com.example.apprestaurante.admin;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.apprestaurante.R;
 import com.example.apprestaurante.Utils.Utils;
@@ -37,8 +40,35 @@ public class adminMainPage extends AppCompatActivity {
         binding.seeOrdersCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mostrarDialog();
+            }
+        });
+
+    }
+
+    private void mostrarDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_orders_design, null);
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        LinearLayout allOrders = view.findViewById(R.id.allOrders);
+        allOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent userOrders = new Intent(getApplicationContext(), com.example.apprestaurante.admin.allOrders.class);
                 startActivity(userOrders);
+            }
+        });
+
+        LinearLayout clientOrders = view.findViewById(R.id.clientsOrders);
+        clientOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent allOrders = new Intent(getApplicationContext(), com.example.apprestaurante.admin.admin.class);
+                startActivity(allOrders);
             }
         });
 

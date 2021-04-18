@@ -7,7 +7,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
-        android:layout_height="350dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,10 +29,11 @@
 
                 <ImageView
                     android:id="@+id/imageView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="85dp"
+                    android:layout_height="144dp"
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/create_orders"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
@@ -42,7 +43,10 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="See Clients Orders" />
+                    android:text="See Clients Orders"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -56,10 +60,11 @@
 
                 <ImageView
                     android:id="@+id/imageView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="85dp"
+                    android:layout_height="144dp"
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/see_orders"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
@@ -69,7 +74,10 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="See all Orders" />
+                    android:text="See all Orders"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
