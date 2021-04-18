@@ -30,7 +30,7 @@ public class admin extends AppCompatActivity {
         Database con = new Database(this, "Foods",null,1);
         db = con.getWritableDatabase();
         ArrayList<OrderModel> OrderList = new ArrayList<>();
-        Cursor c = con.traerTodo(db);
+        Cursor c = con.traerTodoComidasPedidas(db);
         if(c!=null) {
             do {
                 OrderList.add(new OrderModel(c.getString(1), c.getString(2), c.getString(3), c.getInt(4)));
