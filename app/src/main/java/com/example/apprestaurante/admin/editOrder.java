@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.R;
@@ -38,5 +39,12 @@ public class editOrder extends AppCompatActivity {
         binding.EditdescEdt.setText(desc);
         binding.EditnameEdt.setText(name);
         binding.EditpriceEdt.setText(price);
+
+        binding.placeOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }
