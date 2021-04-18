@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppRestaurante">
-        <activity android:name=".admin.editOrder"></activity>
+        <activity android:name=".client.ClientMainPage"></activity>
+        <activity android:name=".admin.editOrder" />
         <activity android:name=".admin.allOrders" />
         <activity android:name=".admin.adminMainPage">
             <intent-filter>
