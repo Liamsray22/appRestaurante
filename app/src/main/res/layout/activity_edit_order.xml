@@ -110,7 +110,7 @@
         app:layout_constraintVertical_bias="0.353" />
 
     <Button
-        android:id="@+id/placeOrderBtn"
+        android:id="@+id/EditOrderBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/order_sale_btn"
@@ -137,4 +137,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.098" />
+
+    <TextView
+        android:id="@+id/EditIdtxt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="155dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,13 +2,22 @@ package com.example.apprestaurante.Models;
 
 public class FoodModel {
     String name, price, description;
-    int image;
+    int id, image;
 
-    public FoodModel(String name, String price, String description, int image) {
+    public FoodModel(int id, String name, String price, String description, int image) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.image = image;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

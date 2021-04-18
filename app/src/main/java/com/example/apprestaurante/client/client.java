@@ -39,14 +39,14 @@ public class client extends AppCompatActivity {
         db = con.getWritableDatabase();
 
         ArrayList<FoodModel> FoodList = new ArrayList<>();
-        Cursor c = con.traerTodoOrdenes(db);
-        if(c!=null) {
-            do {
-                FoodList.add(new FoodModel(c.getString(1), c.getString(2), c.getString(3), c.getInt(4)));
-            }
-            while (c.moveToNext());
-        }
-//        FoodList.add(new FoodModel("Comida", "20", "No se comia", R.drawable.ic_launcher_background));
+//        Cursor c = con.traerTodoOrdenes(db);
+//        if(c!=null) {
+//            do {
+//                FoodList.add(new FoodModel(c.getString(1), c.getString(2), c.getString(3), c.getInt(4)));
+//            }
+//            while (c.moveToNext());
+//        }
+        FoodList.add(new FoodModel(1,"Comida", "20", "No se comia", R.drawable.ic_launcher_background));
 //        FoodList.add(new FoodModel("Food", "20", "No se caslk", R.mipmap.ic_launcher_round));
 //        FoodList.add(new FoodModel("Nose", "20", "sdjkfhskdf", R.drawable.ic_launcher_background));
 //        FoodList.add(new FoodModel("Algo", "20", "cackokjsdh", R.drawable.ic_launcher_background));

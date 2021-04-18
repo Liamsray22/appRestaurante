@@ -50,4 +50,12 @@ public class Database extends SQLiteOpenHelper {
     public void CrearOrden(SQLiteDatabase db, String FoodName, String FoodPrice, String FoodDesc, int FoodImage) {
         db.execSQL("Insert into ordenes (name, price, descripcion,  imagen) values ('"+FoodName+"', '"+FoodPrice+"', '"+FoodDesc+"', '"+FoodImage+"')");
     }
+
+    public void EditarComidas(SQLiteDatabase db, int id, String FoodName, String FoodPrice, String FoodDesc, int FoodImage) {
+        db.execSQL("Update ordenes set name = '"+FoodName+"', price = '"+FoodPrice+"', descripcion = '"+FoodDesc+"',  imagen = '"+FoodImage+"' where id = '"+id+"'");
+    }
+
+    public void EliminarComidas(SQLiteDatabase db, int id) {
+        db.execSQL("Delete from ordenes where id = '"+id+"'");
+    }
 }

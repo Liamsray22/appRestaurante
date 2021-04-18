@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.R;
@@ -18,7 +19,7 @@ public class editOrder extends AppCompatActivity {
 
     ActivityEditOrderBinding binding;
     SQLiteDatabase db;
-    int image;
+    int image, id;
     String price, name, desc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +36,24 @@ public class editOrder extends AppCompatActivity {
         price = getIntent().getStringExtra("price");
         name = getIntent().getStringExtra("name");
         desc = getIntent().getStringExtra("desc");
+        id = getIntent().getIntExtra("id", 0);
 
         binding.EditdescEdt.setText(desc);
         binding.EditnameEdt.setText(name);
         binding.EditpriceEdt.setText(price);
-
-        binding.placeOrderBtn.setOnClickListener(new View.OnClickListener() {
+        binding.EditIdtxt.setText(String.format("%d", id));
+        binding.EditOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                con.EditarComidas(db,
+                        id,
+                        binding.EditnameEdt.getText().toString(),
+                        binding.EditpriceEdt.getText().toString(),
+                        binding.EditdescEdt.getText().toString(),
+                        image);
+                Toast.makeText(getApplicationContext(), "Comida editada", Toast.LENGTH_LONG).show();
+                Intent goBack = new Intent(getApplicationContext(), adminMainPage.class);
+                startActivity(goBack);
             }
         });
     }
