@@ -37,7 +37,7 @@ public class allOrders extends AppCompatActivity {
         Database con = new Database(this, "Foods",null,1);
         db = con.getWritableDatabase();
         ArrayList<FoodModel> OrderList = new ArrayList<>();
-        Cursor c = con.traerTodoComidasPedidas(db);
+        Cursor c = con.traerTodoOrdenes(db);
         if(c!=null) {
             do {
                 OrderList.add(new FoodModel(c.getString(1), c.getString(2), c.getString(3), c.getInt(4)));
