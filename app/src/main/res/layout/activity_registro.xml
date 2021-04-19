@@ -6,10 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgregistro"
+    tools:context=".ActivityRegistro"
  >
 
     <EditText
-        android:id="@+id/textNombre"
+        android:id="@+id/EdtNombreApellido"
         android:layout_width="228dp"
         android:layout_height="41dp"
         android:background="@drawable/inputs_custom"
@@ -17,15 +18,16 @@
         android:ems="10"
         android:hint="Nombre y Apellido"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
+        app:layout_constraintBottom_toTopOf="@+id/EdtTelefono"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.774" />
+        app:layout_constraintVertical_bias="0.774"
+        tools:ignore="RtlCompat" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/EdtTelefono"
         android:layout_width="224dp"
         android:layout_height="36dp"
         android:layout_marginBottom="28dp"
@@ -34,15 +36,16 @@
         android:ems="10"
         android:hint="Telefono"
         android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/EdtCorreo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.949" />
+        app:layout_constraintVertical_bias="0.949"
+        tools:ignore="RtlCompat" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/EdtCorreo"
         android:layout_width="221dp"
         android:layout_height="36dp"
         android:background="@drawable/inputs_custom"
@@ -55,10 +58,11 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397" />
+        app:layout_constraintVertical_bias="0.397"
+        tools:ignore="RtlCompat" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/EdtClave2"
         android:layout_width="235dp"
         android:layout_height="43dp"
         android:background="@drawable/inputs_custom"
@@ -66,15 +70,16 @@
         android:ems="10"
         android:hint="Confirmar Contraseña"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/registrarseBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2"
-        app:layout_constraintVertical_bias="0.539" />
+        app:layout_constraintTop_toBottomOf="@+id/EdtClave"
+        app:layout_constraintVertical_bias="0.539"
+        tools:ignore="RtlCompat" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/EdtClave"
         android:layout_width="224dp"
         android:layout_height="37dp"
         android:layout_marginTop="28dp"
@@ -87,17 +92,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintTop_toBottomOf="@+id/EdtCorreo"
+        app:layout_constraintVertical_bias="0.055"
+        tools:ignore="RtlCompat" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/registrarseBtn"
         android:layout_width="229dp"
         android:layout_height="64dp"
         android:text="Enviar y Registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/EdtClave" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
