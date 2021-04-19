@@ -1,4 +1,4 @@
-package com.example.apprestaurante.Utils;
+package com.example.apprestaurante;
 
 import androidx.appcompat.app.AppCompatActivity;
 

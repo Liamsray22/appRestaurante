@@ -1,15 +1,11 @@
-git<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:background="@drawable/fondo_client"
-=======
-    android:background="@drawable/bgregistro"
->>>>>>> 6fc27debe2d4661d8607179d46cd6b0562c2cea2
     tools:context=".ActivityRegistro"
  >
 
@@ -21,7 +17,8 @@ git<?xml version="1.0" encoding="utf-8"?>
         android:text="Ya tengo una cuenta, Capitan!!"
         android:textColor="@color/black"
         tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="518dp" />
+        tools:layout_editor_absoluteY="518dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView13"
@@ -31,7 +28,6 @@ git<?xml version="1.0" encoding="utf-8"?>
         android:scrollbarSize="70dp"
         android:text="Sign Up"
         android:textSize="70dp"
-        app:layout_constraintBottom_toTopOf="@+id/EdtNombreApellido"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.846"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,11 +35,7 @@ git<?xml version="1.0" encoding="utf-8"?>
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-<<<<<<< HEAD
         android:fontFamily="@font/krabbypatty"
-
-=======
->>>>>>> 6fc27debe2d4661d8607179d46cd6b0562c2cea2
         android:id="@+id/EdtNombreApellido"
         android:layout_width="228dp"
         android:layout_height="41dp"
@@ -63,13 +55,13 @@ git<?xml version="1.0" encoding="utf-8"?>
     <EditText
         android:id="@+id/EdtTelefono"
         android:layout_width="224dp"
-        android:fontFamily="@font/krabbypatty"
-
         android:layout_height="36dp"
+
         android:layout_marginBottom="28dp"
         android:background="@drawable/inputs_custom"
         android:drawableStart="@drawable/ic_phone"
         android:ems="10"
+        android:fontFamily="@font/krabbypatty"
         android:hint="Telefono"
         android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/EdtCorreo"
