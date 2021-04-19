@@ -13,17 +13,19 @@
         <activity android:name=".admin.editOrder" />
         <activity android:name=".admin.allOrders" />
         <activity android:name=".admin.adminMainPage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".admin.createOrder" />
         <activity android:name=".client.sale" />
         <activity android:name=".admin.admin" />
         <activity android:name=".client.client" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".ActivityRegistro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
