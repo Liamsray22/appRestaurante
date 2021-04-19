@@ -8,7 +8,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
+import com.example.apprestaurante.ActivityRegistro;
 import com.example.apprestaurante.Adapters.FoodAdapter;
 import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.Models.FoodModel;
@@ -19,6 +23,7 @@ import com.example.apprestaurante.admin.admin;
 import com.example.apprestaurante.admin.adminMainPage;
 import com.example.apprestaurante.databinding.ActivityClientBinding;
 import com.example.apprestaurante.databinding.ActivityMainBinding;
+import com.example.apprestaurante.databinding.ActivityRegistroBinding;
 
 import java.util.ArrayList;
 
@@ -46,16 +51,29 @@ public class client extends AppCompatActivity {
             }
             while (c.moveToNext());
         }
-//        FoodList.add(new FoodModel(1,"Comida", "20", "No se comia", R.drawable.ic_launcher_background));
-//        FoodList.add(new FoodModel("Food", "20", "No se caslk", R.mipmap.ic_launcher_round));
-//        FoodList.add(new FoodModel("Nose", "20", "sdjkfhskdf", R.drawable.ic_launcher_background));
-//        FoodList.add(new FoodModel("Algo", "20", "cackokjsdh", R.drawable.ic_launcher_background));
-//        FoodList.add(new FoodModel("Pupa", "20", "Con el", R.mipmap.ic_launcher_round));
-
         FoodAdapter adapter = new FoodAdapter(FoodList, this);
         binding.recyclerview.setAdapter(adapter);
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.recyclerview.setLayoutManager(layoutManager);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.logout, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent logout = new Intent(getApplicationContext(), ActivityRegistro.class);
+                startActivity(logout);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
