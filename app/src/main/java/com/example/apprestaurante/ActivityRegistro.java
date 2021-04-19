@@ -4,22 +4,34 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.apprestaurante.DataBase.Database;
+import com.example.apprestaurante.Utils.ActivityLogin;
 import com.example.apprestaurante.client.client;
 import com.example.apprestaurante.databinding.ActivityRegistroBinding;
 
 public class ActivityRegistro extends AppCompatActivity {
-
+    TextView tv;
     ActivityRegistroBinding binding;
     SQLiteDatabase db;
     String nombre, telefono, correo, clave, clave2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        tv = findViewById(R.id.texto);
+        tv.setPaintFlags(tv.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivityLogin();
+            }
+        });
         super.onCreate(savedInstanceState);
         binding = ActivityRegistroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -46,5 +58,10 @@ public class ActivityRegistro extends AppCompatActivity {
             }
         });
 
+
+    }
+    public void openActivityLogin(){
+        Intent intent = new Intent(this, ActivityLogin.class);
+        startActivity(intent);
     }
 }
