@@ -5,7 +5,11 @@ git<?xml version="1.0" encoding="utf-8"?>
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="@drawable/fondo_client"
+=======
+    android:background="@drawable/bgregistro"
+>>>>>>> 6fc27debe2d4661d8607179d46cd6b0562c2cea2
     tools:context=".ActivityRegistro"
  >
 
@@ -35,8 +39,11 @@ git<?xml version="1.0" encoding="utf-8"?>
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
+<<<<<<< HEAD
         android:fontFamily="@font/krabbypatty"
 
+=======
+>>>>>>> 6fc27debe2d4661d8607179d46cd6b0562c2cea2
         android:id="@+id/EdtNombreApellido"
         android:layout_width="228dp"
         android:layout_height="41dp"
