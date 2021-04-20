@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.Models.OrderModel;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.Utils.Utils;
 import com.example.apprestaurante.admin.adminMainPage;
 
 import java.util.ArrayList;
@@ -47,7 +48,12 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.viewHolder>{
         holder.FoodImageAdmin.setImageResource(model.getOrderImage());
         holder.FoodNameAdmin.setText(model.getItemName());
         holder.FoodPriceAdmin.setText(model.getPrice());
-        holder.FoodOrderNo.setText(model.getOrderNo());
+        int rand = (int)(Math.random()*(999999-100000+1)+100000);
+        holder.FoodOrderNo.setText(String.format("%d", rand));
+        if(Utils.getInstance().getTipoUsuario()!="admin") {
+            holder.FoodbtnDispatch.setVisibility(View.INVISIBLE);
+        }
+
         holder.FoodbtnDispatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
