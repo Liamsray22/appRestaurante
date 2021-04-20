@@ -16,6 +16,7 @@ import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.Models.FoodModel;
 import com.example.apprestaurante.R;
 import com.example.apprestaurante.Utils.Utils;
+import com.example.apprestaurante.client.ClientMainPage;
 import com.example.apprestaurante.client.client;
 import com.example.apprestaurante.databinding.ActivityClientBinding;
 import com.example.apprestaurante.databinding.ActivityLoginBinding;
@@ -60,7 +61,7 @@ public class ActivityLogin extends AppCompatActivity {
                     }else {
                         utils.setTipoUsuario("client");
                     }
-                    Intent enter = new Intent(getApplicationContext(), client.class);
+                    Intent enter = new Intent(getApplicationContext(), ClientMainPage.class);
                     startActivity(enter);
                 }else {
                     binding.EdtClaveLogin.setText("");

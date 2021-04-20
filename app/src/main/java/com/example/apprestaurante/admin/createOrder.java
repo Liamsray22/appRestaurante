@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.R;
 import com.example.apprestaurante.Utils.Utils;
+import com.example.apprestaurante.client.ClientMainPage;
 import com.example.apprestaurante.client.client;
 import com.example.apprestaurante.databinding.ActivityCreateOrderBinding;
 import com.example.apprestaurante.databinding.ActivitySaleBinding;
@@ -27,7 +28,7 @@ public class createOrder extends AppCompatActivity {
         binding = ActivityCreateOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         if(Utils.getInstance().getTipoUsuario() != "admin"){
-            Intent isClient = new Intent(this, client.class);
+            Intent isClient = new Intent(this, ClientMainPage.class);
             startActivity(isClient);
         }
 
