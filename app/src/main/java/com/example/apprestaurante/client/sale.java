@@ -26,7 +26,7 @@ public class sale extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySaleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        if(Utils.TipoUsuario != "client"){
+        if(Utils.getInstance().getTipoUsuario() != "client"){
             Intent isAdmin = new Intent(this, adminMainPage.class);
             startActivity(isAdmin);
         }

@@ -26,7 +26,7 @@ public class editOrder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityEditOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        if(Utils.TipoUsuario != "admin"){
+        if(Utils.getInstance().getTipoUsuario() != "admin"){
             Intent isClient = new Intent(this, client.class);
             startActivity(isClient);
         }
