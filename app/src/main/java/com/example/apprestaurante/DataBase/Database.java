@@ -70,6 +70,9 @@ public class Database extends SQLiteOpenHelper {
     public void EliminarComidas(SQLiteDatabase db, int id) {
         db.execSQL("Delete from ordenes where id = '" + id + "'");
     }
+    public void DespacharComidas(SQLiteDatabase db, int id) {
+        db.execSQL("Delete from comidas where id = '" + id + "'");
+    }
 
     public boolean revisarClaveyCorreo(SQLiteDatabase db, String clave, String clave2, String correo) {
         Cursor c = db.rawQuery("Select * from usuarios where correo = '"+correo+"'", null);

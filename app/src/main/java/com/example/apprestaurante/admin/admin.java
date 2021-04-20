@@ -49,7 +49,7 @@ public class admin extends AppCompatActivity {
         Cursor c = con.traerTodoComidasPedidas(db);
         if(c!=null) {
             do {
-                OrderList.add(new OrderModel(c.getString(1), c.getString(2), c.getString(3), c.getInt(4), c.getInt(5)));
+                OrderList.add(new OrderModel(c.getString(1), c.getString(2), c.getString(3), c.getInt(4), c.getInt(0)));
             }
             while (c.moveToNext());
         }
