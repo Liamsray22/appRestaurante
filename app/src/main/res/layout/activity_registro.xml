@@ -16,12 +16,13 @@
         android:fontFamily="@font/krabbypatty"
         android:text="Ya tengo una cuenta, Capitan!!"
         android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.722"
+        app:layout_constraintVertical_bias="0.899"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -33,19 +34,17 @@
         android:text="Sign Up"
         android:textSize="70dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.846"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:fontFamily="@font/krabbypatty"
         android:id="@+id/EdtNombreApellido"
-        android:layout_width="228dp"
-        android:layout_height="41dp"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
         android:background="@drawable/inputs_custom"
         android:drawableStart="@drawable/ic_user"
         android:ems="10"
+        android:fontFamily="@font/krabbypatty"
         android:hint="Nombre y Apellido"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/EdtTelefono"
@@ -58,8 +57,8 @@
 
     <EditText
         android:id="@+id/EdtTelefono"
-        android:layout_width="224dp"
-        android:layout_height="36dp"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
 
         android:layout_marginBottom="28dp"
         android:background="@drawable/inputs_custom"
@@ -78,14 +77,14 @@
 
     <EditText
         android:id="@+id/EdtCorreo"
-        android:layout_width="221dp"
-        android:layout_height="36dp"
-        android:fontFamily="@font/krabbypatty"
-
+        android:layout_width="250dp"
+        android:layout_height="45dp"
         android:background="@drawable/inputs_custom"
+
         android:drawableStart="@drawable/ic_mail"
         android:ems="10"
-        android:hint="CorreoElectronico@hotmail.com"
+        android:fontFamily="@font/krabbypatty"
+        android:hint="Correo Electronico"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,8 +96,8 @@
 
     <EditText
         android:id="@+id/EdtClave2"
-        android:layout_width="235dp"
-        android:layout_height="43dp"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
         android:background="@drawable/inputs_custom"
         android:drawableStart="@drawable/ic_pass"
         android:ems="10"
@@ -115,14 +114,14 @@
 
     <EditText
         android:id="@+id/EdtClave"
-        android:layout_width="224dp"
-        android:fontFamily="@font/krabbypatty"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
 
-        android:layout_height="37dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/inputs_custom"
         android:drawableStart="@drawable/ic_pass"
         android:ems="10"
+        android:fontFamily="@font/krabbypatty"
         android:hint="Clave"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -137,9 +136,10 @@
         android:id="@+id/registrarseBtn"
         android:layout_width="229dp"
         android:layout_height="64dp"
-        android:text="Enviar y Registrarse"
+        android:background="@drawable/order_sale_btn"
         android:fontFamily="@font/krabbypatty"
 
+        android:text="Enviar y Registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
