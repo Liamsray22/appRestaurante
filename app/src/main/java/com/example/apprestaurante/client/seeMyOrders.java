@@ -7,11 +7,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.apprestaurante.Adapters.OrderAdapter;
 import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.Models.OrderModel;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.Utils.Dialogs;
 import com.example.apprestaurante.Utils.Utils;
 import com.example.apprestaurante.admin.adminMainPage;
 import com.example.apprestaurante.databinding.ActivitySeeMyOrdersBinding;
@@ -22,11 +26,15 @@ public class seeMyOrders extends AppCompatActivity {
 
     ActivitySeeMyOrdersBinding binding;
     SQLiteDatabase db;
+    Dialogs dialogs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySeeMyOrdersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        dialogs = new Dialogs(this);
+
         if(Utils.getInstance().getTipoUsuario() != "client"){
             Intent isAdmin = new Intent(this, adminMainPage.class);
             startActivity(isAdmin);
@@ -46,5 +54,24 @@ public class seeMyOrders extends AppCompatActivity {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.myOrdersRecyclerView.setLayoutManager(layoutManager);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.logout, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                dialogs.dialogBack();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
