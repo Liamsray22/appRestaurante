@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.apprestaurante.DataBase.Database;
+import com.example.apprestaurante.Utils.Dialogs;
 import com.example.apprestaurante.admin.adminMainPage;
 import com.example.apprestaurante.client.client;
 import com.example.apprestaurante.databinding.ActivityRegistroBinding;
@@ -23,11 +24,13 @@ public class ActivityRegistro extends AppCompatActivity {
     ActivityRegistroBinding binding;
     SQLiteDatabase db;
     String nombre, telefono, correo, clave, clave2;
+    Dialogs dialogs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityRegistroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        dialogs = new Dialogs(this);
 
         Database con = new Database(this, "Foods",null,1);
         db = con.getWritableDatabase();
@@ -42,7 +45,7 @@ public class ActivityRegistro extends AppCompatActivity {
                 clave2 = binding.EdtClave2.getText().toString();
                 if(con.revisarClaveyCorreo(db, clave, clave2, correo)){
                     con.CrearUsuarios(db, nombre, telefono, correo, clave, 0);
-                    Exito();
+                    dialogs.Exito();
                     Intent isClient = new Intent(getApplicationContext(), ActivityLogin.class);
                     startActivity(isClient);
                 }else {
@@ -64,13 +67,6 @@ public class ActivityRegistro extends AppCompatActivity {
     public void openActivityRegistro(){
         Intent intent = new Intent(this, ActivityLogin.class);
         startActivity(intent);
-    }
-
-    public void Exito () {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-        builder.setMessage("Usuario Registrado con exito").setTitle("Exito");
-        final AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
 }

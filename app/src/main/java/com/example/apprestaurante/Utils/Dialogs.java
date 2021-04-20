@@ -21,6 +21,12 @@ public class Dialogs {
         this.context = context;
         this.inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
     }
+    public void Exito () {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("Usuario Registrado con exito").setTitle("Exito");
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
     public void dialogBack () {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

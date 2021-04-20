@@ -15,6 +15,7 @@ import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.Models.FoodModel;
 import com.example.apprestaurante.Models.OrderModel;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.client.ClientMainPage;
 import com.example.apprestaurante.client.client;
 import com.example.apprestaurante.databinding.ActivityAdminBinding;
 import com.example.apprestaurante.databinding.ActivityClientBinding;
@@ -31,7 +32,7 @@ public class admin extends AppCompatActivity {
         binding = ActivityAdminBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         if(Utils.getInstance().getTipoUsuario() != "admin"){
-            Intent isClient = new Intent(this, client.class);
+            Intent isClient = new Intent(this, ClientMainPage.class);
             startActivity(isClient);
         }
         Database con = new Database(this, "Foods",null,1);

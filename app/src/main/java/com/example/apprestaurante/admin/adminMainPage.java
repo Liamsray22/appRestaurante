@@ -18,6 +18,7 @@ import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.R;
 import com.example.apprestaurante.Utils.Dialogs;
 import com.example.apprestaurante.Utils.Utils;
+import com.example.apprestaurante.client.ClientMainPage;
 import com.example.apprestaurante.client.client;
 import com.example.apprestaurante.databinding.ActivityAdminMainPageBinding;
 
@@ -28,11 +29,10 @@ public class adminMainPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_main_page);
         binding = ActivityAdminMainPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         if(Utils.getInstance().getTipoUsuario() != "admin"){
-            Intent isClient = new Intent(this, client.class);
+            Intent isClient = new Intent(this, ClientMainPage.class);
             startActivity(isClient);
         }
         dialogs = new Dialogs(this);
