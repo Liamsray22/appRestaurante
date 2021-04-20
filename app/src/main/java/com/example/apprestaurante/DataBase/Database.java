@@ -87,6 +87,7 @@ public class Database extends SQLiteOpenHelper {
     public Cursor Login(SQLiteDatabase db, String correo, String clave) {
         Cursor c = db.rawQuery("Select * from usuarios where correo = '"+correo+"' and clave = '"+clave+"'", null);
         if (c.moveToFirst()) {
+            Utils.getInstance().setIdUsuario(c.getInt(0));
             return c;
         }
         return null;
