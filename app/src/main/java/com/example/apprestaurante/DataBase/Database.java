@@ -18,7 +18,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("Create table ordenes(id integer primary key autoincrement, name text, price text, descripcion text, imagen integer);");
-        db.execSQL("Create table comidas(id integer primary key autoincrement, nombre text, precio text, descripcion text, imagen integer);");
+        db.execSQL("Create table comidas(id integer primary key autoincrement, nombre text, precio text, descripcion text, imagen integer, idUser integer);");
         db.execSQL("Create table usuarios(id integer primary key autoincrement, nombreApellido text, telefono text, correo text, clave text, tipoUsuario integer);");
     }
 
@@ -55,8 +55,8 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("Insert into usuarios (nombreApellido, telefono, correo, clave, tipoUsuario) values ('" + nombreApellido + "', '" + telefono + "', '" + correo + "', '" + clave + "', '"+tipoUsuario+"')");
     }
 
-    public void OrdenarComida(SQLiteDatabase db, String FoodName, String FoodPrice, String FoodDesc, int FoodImage) {
-        db.execSQL("Insert into comidas (nombre, precio, descripcion,  imagen) values ('" + FoodName + "', '" + FoodPrice + "', '" + FoodDesc + "', '" + FoodImage + "')");
+    public void OrdenarComida(SQLiteDatabase db, String FoodName, String FoodPrice, String FoodDesc, int FoodImage, int idUser) {
+        db.execSQL("Insert into comidas (nombre, precio, descripcion,  imagen, idUser) values ('" + FoodName + "', '" + FoodPrice + "', '" + FoodDesc + "', '" + FoodImage + "', '"+idUser+"')");
     }
 
     public void CrearOrden(SQLiteDatabase db, String FoodName, String FoodPrice, String FoodDesc, int FoodImage) {
@@ -83,6 +83,14 @@ public class Database extends SQLiteOpenHelper {
 
     public Cursor Login(SQLiteDatabase db, String correo, String clave) {
         Cursor c = db.rawQuery("Select * from usuarios where correo = '"+correo+"' and clave = '"+clave+"'", null);
+        if (c.moveToFirst()) {
+            return c;
+        }
+        return null;
+    }
+
+    public Cursor traerMisComidas(SQLiteDatabase db) {
+        Cursor c = db.rawQuery("Select * from comidas where idUser = '"+Utils.getInstance().getIdUsuario()+"'", null);
         if (c.moveToFirst()) {
             return c;
         }
