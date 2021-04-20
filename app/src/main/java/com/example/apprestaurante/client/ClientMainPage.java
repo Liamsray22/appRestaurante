@@ -40,8 +40,8 @@ public class ClientMainPage extends AppCompatActivity {
         binding.seeMyOrdersCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent seeAll = new Intent(getApplicationContext(), client.class);
-                startActivity(seeAll);
+                Intent seeMyOrders = new Intent(getApplicationContext(), seeMyOrders.class);
+                startActivity(seeMyOrders);
             }
         });
 

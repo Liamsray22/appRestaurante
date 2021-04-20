@@ -10,8 +10,8 @@
 
     <EditText
         android:id="@+id/descEdt"
-        android:layout_width="209dp"
-        android:layout_height="51dp"
+        android:layout_width="215dp"
+        android:layout_height="90dp"
         android:background="@drawable/input_border"
         android:ems="10"
         android:gravity="center"
@@ -78,8 +78,8 @@
 
     <EditText
         android:id="@+id/priceEdt"
-        android:layout_width="87dp"
-        android:layout_height="44dp"
+        android:layout_width="215dp"
+        android:layout_height="47dp"
         android:background="@drawable/input_border"
         android:ems="10"
         android:gravity="center"
@@ -90,7 +90,7 @@
         android:textColorHint="#D5D5D5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintHorizontal_bias="0.846"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.334" />
@@ -137,4 +137,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.098" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

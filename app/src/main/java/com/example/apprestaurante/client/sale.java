@@ -19,7 +19,7 @@ public class sale extends AppCompatActivity {
 
     ActivitySaleBinding binding;
     SQLiteDatabase db;
-    int image;
+    int image, id;
     String name, price, desc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +42,13 @@ public class sale extends AppCompatActivity {
         binding.FoodDescSale.setText(desc);
         binding.FoodPriceSale.setText(price);
         binding.FoodImageSale.setImageResource(image);
+        id = Utils.getInstance().getIdUsuario();
 
         binding.OrderSaleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    con.OrdenarComida(db, name, price, desc, image);
+                    con.OrdenarComida(db, name, price, desc, image, id);
                     Intent admin = new Intent(getApplicationContext(), com.example.apprestaurante.admin.admin.class);
                     startActivity(admin);
                 }catch (Exception e){
