@@ -60,7 +60,7 @@
             android:layout_width="220dp"
             android:layout_height="46dp"
             android:gravity="center"
-            android:text="See All"
+            android:text="Menu"
             android:textColor="@color/black"
             android:textSize="30dp"
             android:textStyle="bold"
