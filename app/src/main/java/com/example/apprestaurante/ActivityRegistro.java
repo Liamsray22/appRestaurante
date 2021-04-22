@@ -71,5 +71,10 @@ public class ActivityRegistro extends AppCompatActivity {
         Intent intent = new Intent(this, ActivityLogin.class);
         startActivity(intent);
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ActivityLogin.class);
+        startActivity(intent);
+    }
 
 }

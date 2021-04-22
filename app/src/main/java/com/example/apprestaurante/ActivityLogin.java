@@ -15,6 +15,7 @@ import com.example.apprestaurante.ActivityRegistro;
 import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.Models.FoodModel;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.Utils.Dialogs;
 import com.example.apprestaurante.Utils.Utils;
 import com.example.apprestaurante.client.ClientMainPage;
 import com.example.apprestaurante.client.client;
@@ -25,6 +26,7 @@ public class ActivityLogin extends AppCompatActivity {
     ActivityLoginBinding binding;
     String correo, clave;
     SQLiteDatabase db;
+    Dialogs dialogs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class ActivityLogin extends AppCompatActivity {
         setContentView(binding.getRoot());
         Database con = new Database(this, "Foods",null,1);
         db = con.getWritableDatabase();
+        dialogs = new Dialogs(this);
 
         binding.texto.setPaintFlags(binding.texto.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         binding.texto.setOnClickListener(new View.OnClickListener() {
@@ -76,5 +79,10 @@ public class ActivityLogin extends AppCompatActivity {
     public void openActivityRegistro(){
         Intent intent = new Intent(this, ActivityRegistro.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        dialogs.dialogBack();
     }
 }
