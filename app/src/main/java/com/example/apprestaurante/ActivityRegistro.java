@@ -45,9 +45,12 @@ public class ActivityRegistro extends AppCompatActivity {
                 clave2 = binding.EdtClave2.getText().toString();
                 if(con.revisarClaveyCorreo(db, clave, clave2, correo)){
                     con.CrearUsuarios(db, nombre, telefono, correo, clave, 0);
+                    binding.EdtNombreApellido.setText("");
+                    binding.EdtTelefono.setText("");
+                    binding.EdtCorreo.setText("");
+                    binding.EdtClave.setText("");
+                    binding.EdtClave2.setText("");
                     dialogs.Exito();
-                    Intent isClient = new Intent(getApplicationContext(), ActivityLogin.class);
-                    startActivity(isClient);
                 }else {
                     Toast.makeText(getApplicationContext(), "Datos erroneos", Toast.LENGTH_LONG).show();
                 }

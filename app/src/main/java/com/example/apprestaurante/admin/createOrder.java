@@ -50,7 +50,12 @@ public class createOrder extends AppCompatActivity {
                 price = binding.priceEdt.getText().toString();
                 desc = binding.descEdt.getText().toString();
                 try {
-                    con.CrearOrden(db, name, price, desc, R.mipmap.ic_launcher_round);
+                    int random = (int)(Math.random()*9);
+                    int[] imgs = {R.mipmap.comida1, R.mipmap.comida2, R.mipmap.comida3,
+                            R.mipmap.comida4, R.mipmap.comida5, R.mipmap.comida6,
+                            R.mipmap.comida7, R.mipmap.comida8, R.mipmap.comida9,
+                            R.mipmap.comida10};
+                    con.CrearOrden(db, name, price, desc, imgs[random]);
                     Intent client = new Intent(getApplicationContext(), com.example.apprestaurante.client.client.class);
                     startActivity(client);
                 }catch (Exception e){

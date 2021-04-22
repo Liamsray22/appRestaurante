@@ -23,7 +23,13 @@ public class Dialogs {
     }
     public void Exito () {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage("Usuario Registrado con exito").setTitle("Exito");
+        builder.setMessage("Usuario Registrado con exito").setTitle("Exito").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent isClient = new Intent(context, ActivityLogin.class);
+                context.startActivity(isClient);
+            }
+        });
         final AlertDialog dialog = builder.create();
         dialog.show();
     }

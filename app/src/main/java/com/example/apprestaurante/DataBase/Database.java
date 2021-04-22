@@ -76,9 +76,7 @@ public class Database extends SQLiteOpenHelper {
 
     public boolean revisarClaveyCorreo(SQLiteDatabase db, String clave, String clave2, String correo) {
         Cursor c = db.rawQuery("Select * from usuarios where correo = '"+correo+"'", null);
-        if(clave.equals(clave2)){
-            return true;
-        } else if (!c.moveToFirst()) {
+        if(!c.moveToFirst() && clave.equals(clave2)){
             return true;
         }
         return false;
