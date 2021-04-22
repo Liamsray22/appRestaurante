@@ -33,6 +33,7 @@ public class sale extends AppCompatActivity {
         binding = ActivitySaleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         dialogs = new Dialogs(this);
+        cantidad = 1;
 
         if(Utils.getInstance().getTipoUsuario() != "client"){
             Intent isAdmin = new Intent(this, adminMainPage.class);

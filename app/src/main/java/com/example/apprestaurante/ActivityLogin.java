@@ -41,6 +41,8 @@ public class ActivityLogin extends AppCompatActivity {
         Database con = new Database(this, "Foods",null,1);
         db = con.getWritableDatabase();
         dialogs = new Dialogs(this);
+        binding.errorTxt.setText("");
+
 
         binding.texto.setPaintFlags(binding.texto.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         binding.texto.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +61,7 @@ public class ActivityLogin extends AppCompatActivity {
                 if(c != null){
                     int tipoU = c.getInt(5);
                     Utils utils = Utils.getInstance();
+                    binding.errorTxt.setText("");
                     if(tipoU!=0) {
                         utils.setTipoUsuario("admin");
                     }else {
@@ -67,6 +70,7 @@ public class ActivityLogin extends AppCompatActivity {
                     Intent enter = new Intent(getApplicationContext(), ClientMainPage.class);
                     startActivity(enter);
                 }else {
+                    binding.errorTxt.setText("Correo o clave Incorrectos");
                     binding.EdtClaveLogin.setText("");
                     binding.EdtCorreoLogin.setText("");
                 }
