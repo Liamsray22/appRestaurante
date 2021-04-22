@@ -65,14 +65,14 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/aumentar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:srcCompat="@android:drawable/ic_input_add" />
 
                 <TextView
-                    android:id="@+id/textView10"
+                    android:id="@+id/cantidad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -80,7 +80,7 @@
                     android:text="1" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/decrecer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -145,7 +145,7 @@
 
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/goBak"
                     android:layout_width="78dp"
                     android:layout_height="66dp"
                     app:layout_constraintBottom_toBottomOf="parent"

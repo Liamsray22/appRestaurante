@@ -26,7 +26,7 @@ public class sale extends AppCompatActivity {
     int image, id;
     String name, price, desc;
     Dialogs dialogs;
-
+    int cantidad = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,12 +51,46 @@ public class sale extends AppCompatActivity {
         binding.FoodPriceSale.setText(price);
         binding.FoodImageSale.setImageResource(image);
         id = Utils.getInstance().getIdUsuario();
+        int precio = Integer.parseInt(binding.FoodPriceSale.getText().toString());
+        binding.aumentar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cantidad = Integer.parseInt(binding.cantidad.getText().toString());
+                cantidad++;
+                int total = cantidad * precio;
+                binding.cantidad.setText(String.format("%d", cantidad));
+                binding.FoodPriceSale.setText(String.format("%d", total));
+            }
+        });
+
+        binding.decrecer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int cantidad = Integer.parseInt(binding.cantidad.getText().toString());
+                if(cantidad > 1){
+                    cantidad--;
+                }
+                int total = cantidad * precio;
+                binding.cantidad.setText(String.format("%d", cantidad));
+                binding.FoodPriceSale.setText(String.format("%d", total));
+
+            }
+        });
+
+        binding.goBak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         binding.OrderSaleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    con.OrdenarComida(db, name, price, desc, image, id);
+                    for(int i = 0; i < cantidad; i++) {
+                        con.OrdenarComida(db, name, price, desc, image, id);
+                    }
                     Intent admin = new Intent(getApplicationContext(), com.example.apprestaurante.admin.admin.class);
                     startActivity(admin);
                 }catch (Exception e){
