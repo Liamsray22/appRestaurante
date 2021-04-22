@@ -4,20 +4,25 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 
 import androidx.annotation.Nullable;
 
 import com.example.apprestaurante.Utils.Utils;
 
+import java.io.ByteArrayOutputStream;
+
 public class Database extends SQLiteOpenHelper {
 
+//    private ByteArrayOutputStream objectbaos;
+//    private byte[] imagenInBytes;
     public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create table ordenes(id integer primary key autoincrement, name text, price text, descripcion text, imagen integer);");
+        db.execSQL("Create table ordenes(id integer primary key autoincrement, name text, price text, descripcion text, imagen blob);");
         db.execSQL("Create table comidas(id integer primary key autoincrement, nombre text, precio text, descripcion text, imagen integer, idUser integer);");
         db.execSQL("Create table usuarios(id integer primary key autoincrement, nombreApellido text, telefono text, correo text, clave text, tipoUsuario integer);");
     }
@@ -59,8 +64,8 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("Insert into comidas (nombre, precio, descripcion,  imagen, idUser) values ('" + FoodName + "', '" + FoodPrice + "', '" + FoodDesc + "', '" + FoodImage + "', '"+idUser+"')");
     }
 
-    public void CrearOrden(SQLiteDatabase db, String FoodName, String FoodPrice, String FoodDesc, int FoodImage) {
-        db.execSQL("Insert into ordenes (name, price, descripcion,  imagen) values ('" + FoodName + "', '" + FoodPrice + "', '" + FoodDesc + "', '" + FoodImage + "')");
+    public void CrearOrden(SQLiteDatabase db, String FoodName, String FoodPrice, String FoodDesc, byte[] FoodImage) {
+        db.execSQL("Insert into ordenes (name, price, descripcion, imagen) values ('" + FoodName + "', '" + FoodPrice + "', '" + FoodDesc + "', '" + FoodImage + "')");
     }
 
     public void EditarComidas(SQLiteDatabase db, int id, String FoodName, String FoodPrice, String FoodDesc, int FoodImage) {

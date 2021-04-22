@@ -45,7 +45,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.viewHolder>{
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         final OrderModel model = list.get(position);
-        holder.FoodImageAdmin.setImageResource(model.getOrderImage());
+        holder.FoodImageAdmin.setImageBitmap(model.getOrderImage());
         holder.FoodNameAdmin.setText(model.getItemName());
         holder.FoodPriceAdmin.setText(model.getPrice());
         int rand = (int)(Math.random()*(999999-100000+1)+100000);

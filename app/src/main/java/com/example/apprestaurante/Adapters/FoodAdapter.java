@@ -36,7 +36,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.viewHolder>{
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         final FoodModel model = list.get(position);
-        holder.FoodImage.setImageResource(model.getImage());
+        holder.FoodImage.setImageBitmap(model.getImage());
         holder.FoodName.setText(model.getName());
         holder.FoodPrice.setText(model.getPrice());
         holder.FoodDesc.setText(model.getDescription());

@@ -7,6 +7,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -50,7 +52,9 @@ public class client extends AppCompatActivity {
         Cursor c = con.traerTodoOrdenes(db);
         if(c!=null) {
             do {
-                FoodList.add(new FoodModel(c.getInt(0),c.getString(1), c.getString(2), c.getString(3), c.getInt(4)));
+                byte[] imgBytes = c.getBlob(4);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
+                FoodList.add(new FoodModel(c.getInt(0),c.getString(1), c.getString(2), c.getString(3), bitmap));
             }
             while (c.moveToNext());
         }

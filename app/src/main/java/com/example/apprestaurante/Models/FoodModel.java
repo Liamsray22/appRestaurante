@@ -1,10 +1,13 @@
 package com.example.apprestaurante.Models;
 
+import android.graphics.Bitmap;
+
 public class FoodModel {
     String name, price, description;
-    int id, image;
+    int id;
+    Bitmap image;
 
-    public FoodModel(int id, String name, String price, String description, int image) {
+    public FoodModel(int id, String name, String price, String description, Bitmap image) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -44,11 +47,11 @@ public class FoodModel {
         this.description = description;
     }
 
-    public int getImage() {
+    public Bitmap getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Bitmap image) {
         this.image = image;
     }
 }

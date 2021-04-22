@@ -46,7 +46,7 @@ public class AllOrdersAdapter extends RecyclerView.Adapter<AllOrdersAdapter.view
     public void onBindViewHolder(@NonNull AllOrdersAdapter.viewHolder holder, int position) {
         final FoodModel model = list.get(position);
 
-        holder.FoodImageAllOrders.setImageResource(model.getImage());
+        holder.FoodImageAllOrders.setImageBitmap(model.getImage());
         holder.FoodNameAllOrders.setText(model.getName());
         holder.FoodPriceAllOrders.setText(model.getPrice());
         holder.FoodDescAllOrders.setText(model.getDescription());

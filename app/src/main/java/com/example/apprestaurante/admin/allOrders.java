@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,6 +26,7 @@ import com.example.apprestaurante.client.client;
 import com.example.apprestaurante.databinding.ActivityAdminBinding;
 import com.example.apprestaurante.databinding.ActivityAllOrdersBinding;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 
 public class allOrders extends AppCompatActivity {
@@ -49,8 +52,12 @@ public class allOrders extends AppCompatActivity {
         Cursor c = con.traerTodoOrdenes(db);
         if(c!=null) {
             do {
-                FoodList.add(new FoodModel(c.getInt(0),c.getString(1), c.getString(2), c.getString(3), c.getInt(4)));
-            }
+                byte [] imgBytes = c.getBlob(4);
+                if(imgBytes != null) {
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
+                    FoodList.add(new FoodModel(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), bitmap));
+                }
+                }
             while (c.moveToNext());
         }
         AllOrdersAdapter adapter = new AllOrdersAdapter(FoodList, this);

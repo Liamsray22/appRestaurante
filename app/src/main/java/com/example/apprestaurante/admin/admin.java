@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -49,7 +51,9 @@ public class admin extends AppCompatActivity {
         Cursor c = con.traerTodoComidasPedidas(db);
         if(c!=null) {
             do {
-                OrderList.add(new OrderModel(c.getString(1), c.getString(2), c.getString(3), c.getInt(4), c.getInt(0)));
+                byte[] imgBytes = c.getBlob(4);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
+                OrderList.add(new OrderModel(c.getString(1), c.getString(2), c.getString(3), bitmap, c.getInt(0)));
             }
             while (c.moveToNext());
         }

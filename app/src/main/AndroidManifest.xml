@@ -14,12 +14,6 @@
         <activity android:name=".client.seeMyOrders"></activity>
         <activity android:name=".client.ClientMainPage" />
         <activity android:name=".ActivityPic">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".admin.editOrder" />
         <activity android:name=".admin.allOrders" />
@@ -30,8 +24,11 @@
         <activity android:name=".client.client" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ActivityLogin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".ActivityRegistro"></activity>
     </application>
