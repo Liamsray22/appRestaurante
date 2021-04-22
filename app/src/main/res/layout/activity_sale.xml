@@ -12,6 +12,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="0"
+        android:fontFamily="@font/krabbypatty"
+
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="24dp" />
@@ -49,6 +51,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Description"
+                android:fontFamily="@font/krabbypatty"
+
                 android:textColor="#3C3C3C"
                 android:textSize="24sp" />
 
@@ -88,6 +92,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/krabbypatty"
+
                 android:orientation="vertical">
 
                 <TextView
@@ -96,6 +102,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Price:"
+                    android:fontFamily="@font/krabbypatty"
+
                     android:textSize="24sp"
                     tools:text="Price: " />
 
@@ -107,6 +115,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:text="$30"
+                    android:fontFamily="@font/krabbypatty"
+
                     android:textColor="@color/red"
                     android:textSize="19sp" />
 
@@ -125,6 +135,7 @@
                     android:background="@drawable/order_sale_btn"
                     android:text="Order!"
                     app:backgroundTintMode="screen"
+                    android:fontFamily="@font/krabbypatty"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"

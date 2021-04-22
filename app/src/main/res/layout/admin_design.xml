@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/shape"
+    android:layout_marginBottom="5dp"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -14,8 +17,10 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="6dp"
         android:layout_marginRight="6dp">
+        android:background="@drawable/shape"
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -33,7 +38,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:orientation="vertical">
+                android:orientation="vertical"
+               >
 
                 <TextView
                     android:id="@+id/FoodNametxtAdmin"
@@ -42,6 +48,8 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginLeft="12dp"
                     android:text="TextView"
+                    android:fontFamily="@font/krabbypatty"
+
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold|italic" />
@@ -57,6 +65,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:text="Order Number"
+                        android:fontFamily="@font/krabbypatty"
+
                         android:textSize="20sp" />
 
                     <TextView
@@ -66,6 +76,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:text="220101"
+                        android:fontFamily="@font/krabbypatty"
+
                         android:textColor="@color/yellow"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -83,6 +95,8 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:text="TextView"
+                        android:fontFamily="@font/krabbypatty"
+
                         android:textColor="@color/red" />
 
                     <Button
@@ -94,6 +108,8 @@
                         android:layout_weight="1"
                         android:background="@drawable/order_sale_btn"
                         android:text="Dispatch"
+                        android:fontFamily="@font/krabbypatty"
+
                         app:backgroundTintMode="screen" />
                 </LinearLayout>
             </LinearLayout>

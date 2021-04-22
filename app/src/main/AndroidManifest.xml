@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppRestaurante">
+
+        <activity android:name=".ActivityLogin">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".client.seeMyOrders"></activity>
         <activity android:name=".client.ClientMainPage" />
         <activity android:name=".admin.editOrder" />
@@ -19,13 +28,6 @@
         <activity android:name=".admin.admin" />
         <activity android:name=".client.client" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ActivityLogin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".ActivityRegistro"></activity>
     </application>
 
