@@ -22,7 +22,6 @@
                 android:id="@+id/clientsOrders"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/card_border"
                 android:orientation="horizontal"
                 android:padding="5dp">
@@ -43,6 +42,8 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:fontFamily="@font/krabbypatty"
+
                     android:text="See Clients Orders"
                     android:textColor="@color/black"
                     android:textSize="24sp"
@@ -75,6 +76,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="See all Orders"
+                    android:fontFamily="@font/krabbypatty"
+
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />

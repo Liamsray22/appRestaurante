@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppRestaurante">
-        <activity android:name=".ActivityPic">
+
+        <activity android:name=".ActivityLogin">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+=======
+        <activity android:name=".client.seeMyOrders"></activity>
+>>>>>>> e6207588117433e48b4dfea06d8dc0edbb17d6eb
         <activity android:name=".client.ClientMainPage" />
         <activity android:name=".admin.editOrder" />
         <activity android:name=".admin.allOrders" />
@@ -28,9 +32,17 @@
         <activity android:name=".admin.admin" />
         <activity android:name=".client.client" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ActivityLogin">
+        <activity android:name=".ActivityPic">
 
 
+
+=======
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+>>>>>>> e6207588117433e48b4dfea06d8dc0edbb17d6eb
         </activity>
         <activity android:name=".ActivityRegistro"></activity>
     </application>

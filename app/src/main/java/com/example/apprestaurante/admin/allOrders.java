@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.apprestaurante.Adapters.AllOrdersAdapter;
 import com.example.apprestaurante.Adapters.OrderAdapter;
@@ -14,7 +17,9 @@ import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.Models.FoodModel;
 import com.example.apprestaurante.Models.OrderModel;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.Utils.Dialogs;
 import com.example.apprestaurante.Utils.Utils;
+import com.example.apprestaurante.client.ClientMainPage;
 import com.example.apprestaurante.client.client;
 import com.example.apprestaurante.databinding.ActivityAdminBinding;
 import com.example.apprestaurante.databinding.ActivityAllOrdersBinding;
@@ -25,13 +30,17 @@ public class allOrders extends AppCompatActivity {
 
     ActivityAllOrdersBinding binding;
     SQLiteDatabase db;
+    Dialogs dialogs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAllOrdersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        if(Utils.TipoUsuario != "admin"){
-            Intent isClient = new Intent(this, client.class);
+        dialogs = new Dialogs(this);
+
+        if(Utils.getInstance().getTipoUsuario() != "admin"){
+            Intent isClient = new Intent(this, ClientMainPage.class);
             startActivity(isClient);
         }
         Database con = new Database(this, "Foods",null,1);
@@ -49,4 +58,23 @@ public class allOrders extends AppCompatActivity {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.allOrdersRecycler.setLayoutManager(layoutManager);    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.logout, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                dialogs.dialogBack();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.apprestaurante.admin;
+package com.example.apprestaurante.client;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,53 +11,49 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.apprestaurante.Utils.Dialogs;
-import com.example.apprestaurante.Utils.Utils;
-
-import com.example.apprestaurante.Adapters.FoodAdapter;
 import com.example.apprestaurante.Adapters.OrderAdapter;
 import com.example.apprestaurante.DataBase.Database;
-import com.example.apprestaurante.Models.FoodModel;
 import com.example.apprestaurante.Models.OrderModel;
 import com.example.apprestaurante.R;
-import com.example.apprestaurante.client.ClientMainPage;
-import com.example.apprestaurante.client.client;
-import com.example.apprestaurante.databinding.ActivityAdminBinding;
-import com.example.apprestaurante.databinding.ActivityClientBinding;
+import com.example.apprestaurante.Utils.Dialogs;
+import com.example.apprestaurante.Utils.Utils;
+import com.example.apprestaurante.admin.adminMainPage;
+import com.example.apprestaurante.databinding.ActivitySeeMyOrdersBinding;
 
 import java.util.ArrayList;
 
-public class admin extends AppCompatActivity {
+public class seeMyOrders extends AppCompatActivity {
 
-    ActivityAdminBinding binding;
+    ActivitySeeMyOrdersBinding binding;
     SQLiteDatabase db;
     Dialogs dialogs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityAdminBinding.inflate(getLayoutInflater());
+        binding = ActivitySeeMyOrdersBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         dialogs = new Dialogs(this);
-        if(Utils.getInstance().getTipoUsuario() != "admin"){
-            Intent isClient = new Intent(this, ClientMainPage.class);
-            startActivity(isClient);
+
+        if(Utils.getInstance().getTipoUsuario() != "client"){
+            Intent isAdmin = new Intent(this, adminMainPage.class);
+            startActivity(isAdmin);
         }
         Database con = new Database(this, "Foods",null,1);
         db = con.getWritableDatabase();
         ArrayList<OrderModel> OrderList = new ArrayList<>();
-        Cursor c = con.traerTodoComidasPedidas(db);
+        Cursor c = con.traerMisComidas(db);
         if(c!=null) {
             do {
-                OrderList.add(new OrderModel(c.getString(1), c.getString(2), c.getString(3), c.getInt(4), c.getInt(0)));
+                OrderList.add(new OrderModel(c.getString(1), c.getString(2), c.getString(3), c.getInt(4), c.getInt(5)));
             }
             while (c.moveToNext());
         }
         OrderAdapter adapter = new OrderAdapter(OrderList, this);
-        binding.adminRecyclerView.setAdapter(adapter);
+        binding.myOrdersRecyclerView.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        binding.adminRecyclerView.setLayoutManager(layoutManager);
+        binding.myOrdersRecyclerView.setLayoutManager(layoutManager);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

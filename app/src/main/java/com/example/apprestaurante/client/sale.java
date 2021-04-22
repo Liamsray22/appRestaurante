@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.Utils.Dialogs;
 import com.example.apprestaurante.Utils.Utils;
 import com.example.apprestaurante.admin.admin;
 import com.example.apprestaurante.admin.adminMainPage;
@@ -19,14 +23,18 @@ public class sale extends AppCompatActivity {
 
     ActivitySaleBinding binding;
     SQLiteDatabase db;
-    int image;
+    int image, id;
     String name, price, desc;
+    Dialogs dialogs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySaleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        if(Utils.TipoUsuario != "client"){
+        dialogs = new Dialogs(this);
+
+        if(Utils.getInstance().getTipoUsuario() != "client"){
             Intent isAdmin = new Intent(this, adminMainPage.class);
             startActivity(isAdmin);
         }
@@ -42,12 +50,13 @@ public class sale extends AppCompatActivity {
         binding.FoodDescSale.setText(desc);
         binding.FoodPriceSale.setText(price);
         binding.FoodImageSale.setImageResource(image);
+        id = Utils.getInstance().getIdUsuario();
 
         binding.OrderSaleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    con.OrdenarComida(db, name, price, desc, image);
+                    con.OrdenarComida(db, name, price, desc, image, id);
                     Intent admin = new Intent(getApplicationContext(), com.example.apprestaurante.admin.admin.class);
                     startActivity(admin);
                 }catch (Exception e){
@@ -55,5 +64,25 @@ public class sale extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.logout, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                dialogs.dialogBack();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

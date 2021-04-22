@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.apprestaurante.Utils.Utils;
+
 public class Database extends SQLiteOpenHelper {
 
     public Database(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -16,8 +18,8 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("Create table ordenes(id integer primary key autoincrement, name text, price text, descripcion text, imagen integer);");
-        db.execSQL("Create table comidas(id integer primary key autoincrement, nombre text, precio text, descripcion text, imagen integer);");
-        db.execSQL("Create table usuarios(id integer primary key autoincrement, nombreApellido text, telefono text, correo text, clave text);");
+        db.execSQL("Create table comidas(id integer primary key autoincrement, nombre text, precio text, descripcion text, imagen integer, idUser integer);");
+        db.execSQL("Create table usuarios(id integer primary key autoincrement, nombreApellido text, telefono text, correo text, clave text, tipoUsuario integer);");
     }
 
     @Override
@@ -46,12 +48,15 @@ public class Database extends SQLiteOpenHelper {
         return null;
     }
 
-    public void CrearUsuarios(SQLiteDatabase db, String nombreApellido, String telefono, String correo, String clave) {
-        db.execSQL("Insert into usuarios (nombreApellido, telefono, correo, clave) values ('" + nombreApellido + "', '" + telefono + "', '" + correo + "', '" + clave + "')");
+    public void CrearUsuarios(SQLiteDatabase db, String nombreApellido, String telefono, String correo, String clave, int tipoUsuario) {
+        if(nombreApellido.equals("admin")){
+            tipoUsuario = 1;
+        }
+        db.execSQL("Insert into usuarios (nombreApellido, telefono, correo, clave, tipoUsuario) values ('" + nombreApellido + "', '" + telefono + "', '" + correo + "', '" + clave + "', '"+tipoUsuario+"')");
     }
 
-    public void OrdenarComida(SQLiteDatabase db, String FoodName, String FoodPrice, String FoodDesc, int FoodImage) {
-        db.execSQL("Insert into comidas (nombre, precio, descripcion,  imagen) values ('" + FoodName + "', '" + FoodPrice + "', '" + FoodDesc + "', '" + FoodImage + "')");
+    public void OrdenarComida(SQLiteDatabase db, String FoodName, String FoodPrice, String FoodDesc, int FoodImage, int idUser) {
+        db.execSQL("Insert into comidas (nombre, precio, descripcion,  imagen, idUser) values ('" + FoodName + "', '" + FoodPrice + "', '" + FoodDesc + "', '" + FoodImage + "', '"+idUser+"')");
     }
 
     public void CrearOrden(SQLiteDatabase db, String FoodName, String FoodPrice, String FoodDesc, int FoodImage) {
@@ -65,11 +70,34 @@ public class Database extends SQLiteOpenHelper {
     public void EliminarComidas(SQLiteDatabase db, int id) {
         db.execSQL("Delete from ordenes where id = '" + id + "'");
     }
+    public void DespacharComidas(SQLiteDatabase db, int id) {
+        db.execSQL("Delete from comidas where id = '" + id + "'");
+    }
 
-    public boolean revisarClave(String clave, String clave2) {
+    public boolean revisarClaveyCorreo(SQLiteDatabase db, String clave, String clave2, String correo) {
+        Cursor c = db.rawQuery("Select * from usuarios where correo = '"+correo+"'", null);
         if(clave.equals(clave2)){
+            return true;
+        } else if (!c.moveToFirst()) {
             return true;
         }
         return false;
+    }
+
+    public Cursor Login(SQLiteDatabase db, String correo, String clave) {
+        Cursor c = db.rawQuery("Select * from usuarios where correo = '"+correo+"' and clave = '"+clave+"'", null);
+        if (c.moveToFirst()) {
+            Utils.getInstance().setIdUsuario(c.getInt(0));
+            return c;
+        }
+        return null;
+    }
+
+    public Cursor traerMisComidas(SQLiteDatabase db) {
+        Cursor c = db.rawQuery("Select * from comidas where idUser = '"+Utils.getInstance().getIdUsuario()+"'", null);
+        if (c.moveToFirst()) {
+            return c;
+        }
+        return null;
     }
 }

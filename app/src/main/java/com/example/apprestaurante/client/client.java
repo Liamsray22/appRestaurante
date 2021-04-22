@@ -18,6 +18,7 @@ import com.example.apprestaurante.DataBase.Database;
 import com.example.apprestaurante.Models.FoodModel;
 import com.example.apprestaurante.Models.OrderModel;
 import com.example.apprestaurante.R;
+import com.example.apprestaurante.Utils.Dialogs;
 import com.example.apprestaurante.Utils.Utils;
 import com.example.apprestaurante.admin.admin;
 import com.example.apprestaurante.admin.adminMainPage;
@@ -31,12 +32,14 @@ public class client extends AppCompatActivity {
 
     ActivityClientBinding binding;
     SQLiteDatabase db;
+    Dialogs dialogs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityClientBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        if(Utils.TipoUsuario != "client"){
+        dialogs = new Dialogs(this);
+        if(Utils.getInstance().getTipoUsuario() != "client"){
             Intent isAdmin = new Intent(this, adminMainPage.class);
             startActivity(isAdmin);
         }
@@ -69,8 +72,7 @@ public class client extends AppCompatActivity {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Intent logout = new Intent(getApplicationContext(), ActivityRegistro.class);
-                startActivity(logout);
+                dialogs.dialogBack();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
